@@ -1,0 +1,47 @@
+{
+    "requestId": "1111",
+    "application": "App001",
+    "orchestrator":"default",
+    "executionSteps": [
+        {
+            "step": 1,
+            "type": "connector",
+            "connectorType": "API",
+            "metaData": {
+                "url": "https://restcountries.com/v3.1/all",
+                "method": "GET"
+            }
+        },
+        {
+            "step": 2,
+            "type": "connector",
+            "connectorType": "API",
+            "metaData": {
+                "url": "https://restcountries.com/v3.1/name/{countryName}",
+                "method": "GET",
+                "responseType": "array",
+                "headers" :{},
+                "params": {
+                    "path": [
+                        {
+                            "paramKey": "{countryName}",
+                            "source": "INPUT_DATA",
+                            "path": "name.common"
+                        }
+                    ],
+                    "query": [],
+                    "body": []
+                },
+                "isArray": true,
+                "parallel": true,
+                "batchSize": 10
+            }
+        },
+        {
+            "step": 3,
+            "type": "connector",
+            "connectorType": "SQLite",
+            "metaData": {}
+        }
+    ]
+}
