@@ -1,7 +1,7 @@
 {
     "requestId": "1111",
     "application": "App001",
-    "orchestrator":"default",
+    "orchestrator": "default",
     "executionSteps": [
         {
             "step": 1,
@@ -20,7 +20,7 @@
                 "url": "https://restcountries.com/v3.1/name/{countryName}",
                 "method": "GET",
                 "responseType": "array",
-                "headers" :{},
+                "headers": {},
                 "params": {
                     "path": [
                         {
@@ -40,8 +40,11 @@
         {
             "step": 3,
             "type": "connector",
-            "connectorType": "SQLite",
-            "metaData": {}
+            "connectorType": "DB",
+            "metaData": {
+                "dbName": "data.db",
+                "tableName": "data"
+            }
         }
     ]
 }

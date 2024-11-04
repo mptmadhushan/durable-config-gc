@@ -63,7 +63,7 @@ function getActivityFunctionForUseCase(type, connectorType) {
          case "FileStore":
             // implementation for specific connector type
             break;
-         case "SQLite":
+         case "DB":
             return "StoreInSQLite";
       }
    } else {
