@@ -8,7 +8,7 @@
             "type": "connector",
             "connectorType": "API",
             "metaData": {
-                "url": "https://restcountries.com/v3.1/all",
+                "url": "http://localhost:3000/v3.1/all",
                 "method": "GET"
             }
         },
@@ -17,7 +17,7 @@
             "type": "connector",
             "connectorType": "API",
             "metaData": {
-                "url": "https://restcountries.com/v3.1/name/{countryName}",
+                "url": "http://localhost:3000/v3.1/name/{countryName}",
                 "method": "GET",
                 "responseType": "array",
                 "headers": {},
@@ -40,10 +40,18 @@
         {
             "step": 3,
             "type": "connector",
-            "connectorType": "DB",
+            "connectorType": "Database",
             "metaData": {
-                "dbName": "data.db",
-                "tableName": "data"
+                "dbType": "postgres",
+                "dbUrl": "database-url",
+                "port": 5432,
+                "user": "username",
+                "password": "password",
+                "database": "database",
+                "fetchQuery": "SELECT * FROM _table WHERE column = $1",
+                "fetchParams": ["value"],
+                "storeQuery": "INSERT INTO _table (column1, column2) VALUES ($1, $2)",
+                "storeParams": ["value1", "value2"]
             }
         }
     ]
