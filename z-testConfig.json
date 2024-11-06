@@ -53,6 +53,16 @@
                 "storeQuery": "INSERT INTO _table (column1, column2) VALUES ($1, $2)",
                 "storeParams": ["value1", "value2"]
             }
+        },
+        {
+            "step": 4,
+            "type": "transform",
+            "connectorType": "JSONToXML",
+            "metaData": {
+                "name": "Alice",
+                "birthday": "2000-01-01",
+                "city": "New York"
+            }
         }
     ]
 }
